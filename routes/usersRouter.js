@@ -2,7 +2,7 @@ const express = require('express');
 const router= express.Router();
 
 router.get('/',async(req,res)=>{
-    console.log("its working");
+    res.send("its working");
 });
 
 module.exports = router;

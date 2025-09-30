@@ -6,14 +6,34 @@
     <title>Unko Sansar</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-cyan-50">
-    <div class="text-center mt-10 text-3xl font-serif" >Unko Sansar</div>
-    <div class="flex w-auto h-auto gap-35 ml-30 mt-20 ">
-        <div class="bg-cyan-900 w-120 h-100 rounded-md ">
-            left
+<body class="bg-cyan-100">
+    <% if(error.length >0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= error %>
+            </span>
         </div>
-        <div class="bg-cyan-500 w-100 h-100 rounded-md">
-            ight
+    <% } %>
+    <div class="text-center mt-10 text-4xl font-serif text-cyan-800" > Unko Sansar</div>
+    <div class="w-full text-center text-black font-mono text-sm ">⋆your wollen world⋆</div>
+    <div class="flex w-auto h-auto gap-35 ml-30 mt-10  ">
+        <div class="bg-cyan-50 w-120 h-100 rounded-md text-center text-2xl shadow-lg py-3 ">
+            <span class="text-cyan-900 ">create your account</span>
+            <form autocomplete="off" method="post" action="/users/register">
+                <input class="rounded-md border-none bg-cyan-100 mt-7 mb-8 px-3 h-10 outline-none text-sm w-70" type="text" placeholder="Username" name="fullname" >
+                <input class="rounded-md border-none bg-cyan-100 mb-8 px-3 h-10 outline-none text-sm w-70"  type="email" placeholder="Email" name="email">
+                <input class="rounded-md border-none bg-cyan-100 mb-8 px-3 h-10 outline-none text-sm w-70"  type="password" placeholder="Password" name="password"><br>
+                <input class="w-70 rounded-md bg-blue-500 text-white px-3 py-2 text-sm text-sm w-70" type="submit" name="submit" value="Create account" id="">
+                
+            </form>
+        </div>
+        <div class="bg-cyan-50 w-100 h-100 rounded-md text-center text-2xl py-3 shadow-xl">
+            <span class="text-cyan-900 ">Login</span>
+            <form method="post" action="/users/login">
+                <input class="rounded-md border-none bg-cyan-100 mb-8 mt-7 px-3 h-10 outline-none text-sm w-70"  type="email" placeholder="Email" name="email">
+                <input class="rounded-md border-none bg-cyan-100 mb-8 px-3 h-10 outline-none text-sm w-70"  type="password" placeholder="Password" name="password"><br>
+                <button class="w-70 rounded-md bg-blue-500 text-white px-3 py-2 text-sm text-sm w-70" type="submit">Login</button>
+            </form>
         </div>
     </div>    
 </body>

@@ -4,6 +4,7 @@ const cookieparser = require('cookie-parser');
 const path = require('path');
 const expressSession = require("express-session");
 const flash = require("connect-flash");
+
 require('dotenv').config();
 
 const ownersRouter = require('./routes/ownersRouter');
@@ -15,13 +16,7 @@ const db = require('./config/mongoose-connection');
 
 app.use(express.json());
 app.use(
-    express.urlencoded({
-        extended: true,
-        inflate: true,
-        limit: "1mb",
-        parameterLimit: 5000,
-        type: "application/x-www-form-urlencoded",
-    })
+    express.urlencoded({extended:true})
 );
 app.use(cookieparser());
 app.use(expressSession({

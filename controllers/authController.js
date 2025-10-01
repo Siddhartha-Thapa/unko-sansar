@@ -35,13 +35,13 @@ module.exports.loginUser = async function (req, res){
     let {email , password} = req.body;
     let user =await usermodel.findOne({email:email});
     if(!user){
-        return res.status(400).send("Email or password incorrect");
+        return res.status(400).send("Email or Password incorrect");
     }
     bcrypt.compare(password, user.password , function(err, result){
         if(result){
         let token = generateToken(user);
         res.cookie("token", token);
-        res.send("you can log in");
+        res.render("login",{user});
         }
         else{
             res.send("Invalid Email or Password");

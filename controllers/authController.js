@@ -51,3 +51,5 @@ module.exports.logoutUser = function(req,res){
     res.cookie("token","");
     res.redirect("/");
 }
+
+//comment

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unko Sansar</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body >
@@ -13,13 +15,13 @@
          Unko Sansar
         </div>
         <div class="text-sm font-mono text-white px-5 py-3 ">
-         <a href="">Home</a>
+         <a href="#">Home</a>
         </div>
         <div class="text-sm font-mono text-white px-5 py-3 ">
-         <a href="">Order</a>
+         <a href="#order">Order</a>
         </div>
         <div class="text-sm font-mono text-white px-5 py-3 ">
-         <a href="">Contact</a>
+         <a href="#contact">Contact</a>
         </div>
         <div class="flex gap-7">
             <a class="px-10 py-2" href="#"><img class="w-8 h-7 rounded-md bg-cyan-700" src="/images/cart.png" alt=""></a>
@@ -30,5 +32,148 @@
     <div class="w-full ">
         <img src="/images/banner.png" alt="">
     </div>
+    <section class="bg-gray-100 scroll-smooth" id="order">
+        <div class="w-full font-mono text-7xl text-cyan-800 text-center font-bold py-14">
+            ORDER NOW
+        </div>
+        <br>
+        <br>
+        <div class="flex justify-around gap-5 px-5 ">
+            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
+                <img class="w-auto h-auto rounded-md border-none" src="/images/one.jpg" alt="">
+            </div>
+            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
+                <img class="w-auto h-auto rounded-md border-none" src="/images/two.jpg" alt="">
+            </div>
+            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
+                <img class="w-50 h-50 rounded-md border-none" src="/images/three.jpg" alt="">
+            </div>
+            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
+                <img class="w-50 h-50 rounded-md border-none" src="/images/four.jpg" alt="">
+            </div>
+        </div>
+        <div class="w-full h-40  flex gap-5 justify-around">
+            <div class=" w-1/4 text-cyan-900 px-15 py-2">
+                Crochet Bouquet
+                <br>
+                Price: 500
+                <br>
+                <br>
+                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
+                <br>
+                <br>
+                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
+                 
+            </div>
+             <div class=" w-1/4 text-cyan-900 px-15 py-2">
+                Daisy Headband
+                <br>
+                Price: 300
+                <br>
+                <br>
+                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
+                <br>
+                <br>
+                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
+                 
+            </div>
+            <div class=" w-1/4 text-cyan-900 px-15 py-2">
+                Boho style crochet top
+                <br>
+                Price: 999
+                <br>
+                <br>
+                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
+                <br>
+                <br>
+                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
+                 
+            </div>
+            <div class=" w-1/4 text-cyan-900 px-15 py-2">
+                Star ear muffs
+                <br>
+                Price: 499
+                <br>
+                <br>
+                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
+                <br>
+                <br>
+                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
+                 
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+       <!-- add products -->
+    </section>
+    <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-100">
+        <div class="w-full font-mono text-7xl text-cyan-800 text-center font-bold py-14">
+            CONTACT US
+        </div>
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+    
+    <!-- Social Box -->
+    <div class="social-box autoBlur bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">Contact Information</h2>
+      <p class="flex items-center gap-3 text-gray-700 dark:text-gray-300 mb-3">
+        <i class='bx bxs-phone text-indigo-600 text-xl'></i> +977 97XXXXXX
+      </p>
+      <p class="flex items-center gap-3 text-gray-700 dark:text-gray-300 mb-6">
+        <i class='bx bx-mail-send text-indigo-600 text-xl'></i> unkosansar@gmail.com
+      </p>
+
+      <div class="flex gap-5 mt-4">
+        <a href="#" target="_blank" class="text-gray-500 hover:text-gray-900 dark:hover:text-white transition text-2xl">
+          <i class='bx bxl-tiktok'></i>
+        </a>
+        <a href="#" target="_blank" class="text-gray-500 hover:text-blue-600 transition text-2xl">
+          <i class='bx bxl-instagram'></i>
+        </a>
+        <a href="#" target="_blank" class="text-gray-500 hover:text-blue-500 transition text-2xl">
+          <i class='bx bxl-facebook-circle'></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-box autoBlur bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+      <form action="https://formspree.io/f/manpwylk" method="POST" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">Get in Touch</h2>
+
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Full Name</label>
+          <input name="name" type="text" placeholder="Your Full Name" required
+            class="w-full p-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none">
+        </div>
+
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+          <input name="email" type="email" placeholder="Your Email" required
+            class="w-full p-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none">
+        </div>
+
+        <div>
+          <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Your Message</label>
+          <textarea name="message" placeholder="Share your thoughts..." required
+            class="w-full p-3 h-32 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+        </div>
+
+        <button type="submit"
+          class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition font-medium shadow-md">
+          Send Message <i class='bx bx-mail-send text-lg'></i>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
 </body>
+<script 
+src="https://unpkg.com/aos@next/dist/aos.js">
+</script> 
+<script > 
+AOS.init(); 
+</script>
 </html>

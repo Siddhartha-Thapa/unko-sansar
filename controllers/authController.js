@@ -10,9 +10,7 @@ module.exports.registerUser =async function(req,res){
     if(user)return res.status(401).send("User already registered, please login");
     try {
         bcrypt.genSalt(10,(err,salt)=>{
-            console.log(salt);
             bcrypt.hash(password , salt, async(err, hash)=>{
-                console.log(hash);
                 if(err){return res.status(501).send(err.message);}
                 else{
                     let user =  await usermodel.create({

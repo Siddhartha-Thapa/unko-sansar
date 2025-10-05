@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white flex justify-center items-center min-h-screen">
+  <div class="w-full max-w-3xl p-6">
+    <h2 class="text-xl font-bold mb-4">Create New Product</h2>
+
+    <form action="/products/create" method="post" enctype="multipart/form-data" class="space-y-6">
+      <!-- Product Details -->
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Product Details</h3>
+
+        <div class="mb-4">
+          <label class="block mb-1">Product Image</label>
+          <input type="file" name="image" class="block w-full text-sm text-gray-600">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="productName" placeholder="Product Name" class="border rounded p-2 w-full">
+          <input type="text" name="productPrice" placeholder="Product Price" class="border rounded p-2 w-full">
+          <input type="text" name="discountPrice" placeholder="Discount Price" class="border rounded p-2 w-full">
+        </div>
+      </div>
+
+      <!-- Panel Details -->
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Panel Details</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="backgroundColor" placeholder="Background Color" class="border rounded p-2 w-full">
+          <input type="text" name="panelColor" placeholder="Panel Color" class="border rounded p-2 w-full">
+          <input type="text" name="textColor" placeholder="Text Color" class="border rounded p-2 w-full col-span-2">
+        </div>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+        Create New Product
+      </button>
+    </form>
+  </div>
+</body>
+</html>

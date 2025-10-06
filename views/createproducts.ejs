@@ -7,6 +7,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white flex justify-center items-center min-h-screen">
+     <% if(success.length>0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %>
+            </span>
+        </div>
+    <% } %>
   <div class="w-full max-w-3xl p-6">
     <h2 class="text-xl font-bold mb-4">Create New Product</h2>
 
@@ -21,19 +28,9 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-          <input type="text" name="productName" placeholder="Product Name" class="border rounded p-2 w-full">
-          <input type="text" name="productPrice" placeholder="Product Price" class="border rounded p-2 w-full">
-          <input type="text" name="discountPrice" placeholder="Discount Price" class="border rounded p-2 w-full">
-        </div>
-      </div>
-
-      <!-- Panel Details -->
-      <div>
-        <h3 class="text-lg font-semibold mb-2">Panel Details</h3>
-        <div class="grid grid-cols-2 gap-4">
-          <input type="text" name="backgroundColor" placeholder="Background Color" class="border rounded p-2 w-full">
-          <input type="text" name="panelColor" placeholder="Panel Color" class="border rounded p-2 w-full">
-          <input type="text" name="textColor" placeholder="Text Color" class="border rounded p-2 w-full col-span-2">
+          <input type="text" name="name" placeholder="Product Name" class="border rounded p-2 w-full">
+          <input type="text" name="price" placeholder="Product Price" class="border rounded p-2 w-full">
+          <input type="text" name="discount" placeholder="Discount Price" class="border rounded p-2 w-full">
         </div>
       </div>
 

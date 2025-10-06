@@ -20,7 +20,8 @@ if(process.env.NODE_ENV === "development"){
     })
 }
 router.get('/admin',async(req,res)=>{
-    res.render("createproducts");
+    let success = req.flash("success");
+    res.render("createproducts",{success});
 });
 
 

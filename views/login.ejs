@@ -9,7 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body >
-    
+      <% if(success.length>0){ %>
+        <div class="absolute top-15 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %>
+            </span>
+        </div>
+    <% } %>
     <nav class="bg-cyan-900 w-full h-12 flex justify-around"> 
         <div class="text-xl font-serif text-cyan-100 px-5 py-3 ">
          Unko Sansar
@@ -26,7 +32,10 @@
         <div class="flex gap-7">
             <a class="px-10 py-2" href="#"><img class="w-8 h-7 rounded-md bg-cyan-700" src="/images/cart.png" alt=""></a>
             <a class="py-2" href="#"><img class="w-6 h-6" src="/images/insta.png" alt=""></a>
-            <a class="py-2" href="#"><img class="w-9 h-5" src="/images/fb.png" alt=""></a>
+            <a class="py-3" href="#"><img class="w-9 h-5" src="/images/fb.png" alt=""></a>
+        </div>
+        <div class="mt-2">
+          <a class="text-sm text-red-500" href="/users/logout">Logout</a>
         </div>
     </nav>
     <div class="w-full ">
@@ -45,13 +54,17 @@
                      <div class= "text-cyan-900 px-15 py-2">
                         <%= product.name %>
                         <br>
-                        Price: <%= product.price%>
+                        <% if(product.discount>0){ %>
+                        Price: <s><%= product.price%></s>  <%= product.price - product.discount %>
+                        <%}else{ %>
+                          Price: <%= product.price %>
+                          <%}%>
                         <br>
                         <br>
                         <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
                         <br>
                         <br>
-                        <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
+                        <a href="/addtocart/<%=product._id%>" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
                         
                     </div>
 

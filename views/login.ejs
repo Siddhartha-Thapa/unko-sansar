@@ -38,70 +38,27 @@
         </div>
         <br>
         <br>
-        <div class="flex items-start gap-30 px-5 ">
-            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
-                <img class="w-auto h-auto rounded-md border-none" src="/images/one.jpg" alt="">
-            </div>
-            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
-                <img class="w-auto h-auto rounded-md border-none" src="/images/two.jpg" alt="">
-            </div>
-            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
-                <img class="w-50 h-50 rounded-md border-none" src="/images/three.jpg" alt="">
-            </div>
-            <div class="bg-cyan-50 w-50 h-50 rounded-md shadow-lg">
-                <img class="w-50 h-50 rounded-md border-none" src="/images/four.jpg" alt="">
-            </div>
-        </div>
-        <div class="w-full h-40  flex gap-5 items-start">
-            <div class=" w-1/4 text-cyan-900 px-15 py-2">
-                Crochet Bouquet
-                <br>
-                Price: 500
-                <br>
-                <br>
-                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
-                <br>
-                <br>
-                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
-                 
-            </div>
-             <div class=" w-1/4 text-cyan-900 px-15 py-2">
-                Daisy Headband
-                <br>
-                Price: 300
-                <br>
-                <br>
-                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
-                <br>
-                <br>
-                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
-                 
-            </div>
-            <div class=" w-1/4 text-cyan-900 px-15 py-2">
-                Boho style crochet top
-                <br>
-                Price: 999
-                <br>
-                <br>
-                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
-                <br>
-                <br>
-                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
-                 
-            </div>
-            <div class=" w-1/4 text-cyan-900 px-15 py-2">
-                Star ear muffs
-                <br>
-                Price: 499
-                <br>
-                <br>
-                <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
-                <br>
-                <br>
-                <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
-                 
-            </div>
-        </div>
+          <div class="flex items-start gap-30 px-5 w-full  grid grid-cols-3  overflow-hidden ">
+            <% products.forEach(function(product){ %>
+              <div class=" w-80 h-125 rounded-md shadow-lg">
+                  <img class="w-80 h-80 rounded-md border-none" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="">
+                     <div class= "text-cyan-900 px-15 py-2">
+                        <%= product.name %>
+                        <br>
+                        Price: <%= product.price%>
+                        <br>
+                        <br>
+                        <a href="#" class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-40">BUY NOW</a>
+                        <br>
+                        <br>
+                        <a href="#" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
+                        
+                    </div>
+
+              </div>
+               <% }) %>
+          </div>
+      
         <br>
         <br>
         <br>

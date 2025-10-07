@@ -14,6 +14,13 @@
             </span>
         </div>
     <% } %>
+     <% if(success.length>0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %>
+            </span>
+        </div>
+    <% } %>
     <div class="text-center mt-10 text-4xl font-serif text-cyan-800" > Unko Sansar</div>
     <div class="w-full text-center text-black font-mono text-sm ">⋆your wollen world⋆</div>
     <div class="flex w-auto h-auto gap-35 ml-30 mt-10  ">

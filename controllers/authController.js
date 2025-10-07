@@ -2,6 +2,7 @@ const usermodel = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const {generateToken} = require("../utils/generateToken");
+const productmodel = require("../models/product");
 
 
 module.exports.registerUser =async function(req,res){
@@ -20,7 +21,8 @@ module.exports.registerUser =async function(req,res){
                     });
                     let token = generateToken(user);
                     res.cookie("token", token);
-                    res.send("user created successfully");
+                    req.flash("success","User created successfully, Please login");
+                    res.redirect("/");
                 }
             })         
         })
@@ -32,19 +34,37 @@ module.exports.registerUser =async function(req,res){
 module.exports.loginUser = async function (req, res){
     let {email , password} = req.body;
     let user =await usermodel.findOne({email:email});
-    if(!user){
-        return res.status(400).send("Email or Password incorrect");
-    }
-    bcrypt.compare(password, user.password , function(err, result){
+    if(user){
+        bcrypt.compare(password, user.password ,async function(err, result){
         if(result){
         let token = generateToken(user);
         res.cookie("token", token);
-        res.render("login",{user});
+        let products =await productmodel.find();
+        res.render("login",{products});
         }
         else{
-            res.send("Invalid Email or Password");
+            try{
+
+                req.flash("error","Email or Password incorrect");
+                res.redirect("/");
+            }
+            catch(err){
+                res.send(err.message);
+            }
         }
-})
+        })
+    }
+    else{
+
+        try{
+            req.flash("error","User not registered");
+            res.redirect("/");
+        }
+        catch(err){
+            res.send(err.message);
+        }
+        
+    }
 }
 
 module.exports.logoutUser = function(req,res){

@@ -44,7 +44,8 @@ module.exports.loginUser = async function (req, res){
         res.cookie("token", token);
         let success = "";
         let products =await productmodel.find();
-        res.render("login",{products ,success,user});
+        let cartcount = user.cart.length;
+        res.render("login",{products ,success,user , cartcount});
         }
         else{
             try{

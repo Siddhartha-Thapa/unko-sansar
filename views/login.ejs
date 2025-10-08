@@ -23,7 +23,26 @@
          <a href="#contact">Contact</a>
         </div>
         <div class="flex gap-7">
-            <a class="px-10 py-2" href="/cart/<%= user._id%>"><img class="w-8 h-7 rounded-md bg-cyan-700" src="/images/cart.png" alt=""></a>
+            <div class="relative inline-block mt-3">
+              <a href="/cart/<%= user._id %>">
+              <!-- Cart Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke-width="1.5" stroke="currentColor"
+                  class="w-8 h-8 text-white">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M2.25 3h1.386a.75.75 0 0 1 .728.568l.383 1.53M7.5 14.25a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm9 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5ZM3.75 6h16.5l-1.5 7.5H7.5L6.11 6.568a.75.75 0 0 0-.728-.568H3.75Z" />
+              </svg>
+
+              <!-- Notification Badge -->
+              <% if (cartcount > 0) { %>
+                <span
+                  class="absolute -top-2 -right-2 bg-white text-orange-600 text-xs font-bold rounded-full px-2 py-0.5 shadow">
+                  <%= cartcount %>
+                </span>
+              <% } %>
+              </a>
+            </div>
+
             <a class="py-2" href="#"><img class="w-6 h-6" src="/images/insta.png" alt=""></a>
             <a class="py-3" href="#"><img class="w-9 h-5" src="/images/fb.png" alt=""></a>
         </div>

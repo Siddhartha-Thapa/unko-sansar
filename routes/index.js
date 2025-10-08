@@ -14,7 +14,8 @@ router.get("/users/login",isLoggedIn, async(req,res)=>{
     let user =await usermodel.findOne({email: req.user.email});
     let products =await productmodel.find();
     let success = req.flash("success");
-    res.render("login", {success, products, user});
+    let cartcount = user.cart.length;
+    res.render("login", {success, products, user, cartcount});
 });
 router.get("/addtocart/:id",isLoggedIn, async(req,res)=>{
     let user =await usermodel.findOne({email: req.user.email});
@@ -27,5 +28,12 @@ router.get("/cart/:id", isLoggedIn , async(req,res)=>{
     let user = await usermodel.findOne({email:req.user.email}).populate("cart");
     let products = await productmodel.find();
     res.render("cart",{user, products});
+})
+router.post("/cart/remove/:id",isLoggedIn ,async(req,res)=>{
+    let user = await usermodel.findOne({email: req.user.email});
+    let indextoremove = user.cart.indexOf(req.params.id);
+    user.cart.splice(indextoremove,1);
+    await user.save();
+    res.redirect(`/cart/${user._id}`);
 })
 module.exports= router;

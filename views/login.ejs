@@ -9,13 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body >
-      <% if(success.length>0){ %>
-        <div class="absolute top-15 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
-            <span class="inline-block mt-1 mb-1 text-white">
-                <%= success %>
-            </span>
-        </div>
-    <% } %>
     <nav class="bg-cyan-900 w-full h-12 flex justify-around"> 
         <div class="text-xl font-serif text-cyan-100 px-5 py-3 ">
          Unko Sansar
@@ -30,7 +23,7 @@
          <a href="#contact">Contact</a>
         </div>
         <div class="flex gap-7">
-            <a class="px-10 py-2" href="#"><img class="w-8 h-7 rounded-md bg-cyan-700" src="/images/cart.png" alt=""></a>
+            <a class="px-10 py-2" href="/cart/<%= user._id%>"><img class="w-8 h-7 rounded-md bg-cyan-700" src="/images/cart.png" alt=""></a>
             <a class="py-2" href="#"><img class="w-6 h-6" src="/images/insta.png" alt=""></a>
             <a class="py-3" href="#"><img class="w-9 h-5" src="/images/fb.png" alt=""></a>
         </div>
@@ -65,7 +58,13 @@
                         <br>
                         <br>
                         <a href="/addtocart/<%=product._id%>" class="text-white bg-cyan-900 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-cyan-600 dark:hover:bg-cyan-700 focus:outline-none dark:focus:ring-blue-800 w-40">Add to cart</a>
-                        
+                        <% if(success.length>0){ %>
+                            <div class="absolute top-15 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+                                <span class="inline-block mt-1 mb-1 text-white">
+                                    <%= success %>
+                                </span>
+                            </div>
+                        <% } %>
                     </div>
 
               </div>

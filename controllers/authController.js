@@ -8,7 +8,10 @@ const productmodel = require("../models/product");
 module.exports.registerUser =async function(req,res){
     let{fullname , email , password}= req.body;
     let user = await usermodel.findOne({email: email});
-    if(user)return res.status(401).send("User already registered, please login");
+    if(user){
+        req.flash("error","User already registered. Please login");
+        res.redirect("/");
+    }
     try {
         bcrypt.genSalt(10,(err,salt)=>{
             bcrypt.hash(password , salt, async(err, hash)=>{
@@ -39,8 +42,9 @@ module.exports.loginUser = async function (req, res){
         if(result){
         let token = generateToken(user);
         res.cookie("token", token);
+        let success = "";
         let products =await productmodel.find();
-        res.render("login",{products});
+        res.render("login",{products ,success,user});
         }
         else{
             try{

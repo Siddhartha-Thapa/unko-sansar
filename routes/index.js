@@ -11,16 +11,21 @@ router.get("/", (req, res)=>{
     res.render("index",{error, success});
 });
 router.get("/users/login",isLoggedIn, async(req,res)=>{
+    let user =await usermodel.findOne({email: req.user.email});
     let products =await productmodel.find();
     let success = req.flash("success");
-    res.render("login", {success, products});
+    res.render("login", {success, products, user});
 });
 router.get("/addtocart/:id",isLoggedIn, async(req,res)=>{
     let user =await usermodel.findOne({email: req.user.email});
-    let products =await productmodel.find();
     user.cart.push(req.params.id);
     await user.save();
     req.flash("success","Added to cart successfully");
     res.redirect("/users/login");
 });
+router.get("/cart/:id", isLoggedIn , async(req,res)=>{
+    let user = await usermodel.findOne({email:req.user.email}).populate("cart");
+    let products = await productmodel.find();
+    res.render("cart",{user, products});
+})
 module.exports= router;

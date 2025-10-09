@@ -27,7 +27,9 @@ router.get("/addtocart/:id",isLoggedIn, async(req,res)=>{
 router.get("/cart/:id", isLoggedIn , async(req,res)=>{
     let user = await usermodel.findOne({email:req.user.email}).populate("cart");
     let products = await productmodel.find();
-    res.render("cart",{user, products});
+    let counter = 1;
+    
+    res.render("cart",{user, products, counter});
 })
 router.post("/cart/remove/:id",isLoggedIn ,async(req,res)=>{
     let user = await usermodel.findOne({email: req.user.email});
@@ -36,4 +38,5 @@ router.post("/cart/remove/:id",isLoggedIn ,async(req,res)=>{
     await user.save();
     res.redirect(`/cart/${user._id}`);
 })
+
 module.exports= router;

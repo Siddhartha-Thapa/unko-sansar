@@ -11,6 +11,12 @@
     <br>
     <br>
     <div>
+        <% if(user.cart.length == 0){ %>
+            <div class="w-full text-sm text-center text-cyan-900 ">No items added to cart
+                <br>
+            <a class="text-blue-500" href="/users/login">← Continue shopping</a>
+            <div></div>
+        <% } %>
         <% user.cart.forEach(function(item){ %>
             
             <br>
@@ -42,7 +48,10 @@
         <% }) %>
     </div>
     
-    <footer class="w-full h-20 bg-cyan-900 flex justify-between  bottom-0 ">
+      <% if(user.cart.length == 0){ %>
+           
+        <% } else{  %>
+    <footer class="w-full h-20 bg-cyan-900 flex justify-between bottom-0 ">
         <div class="text-2xl text-yellow-400 px-5 py-5 ">
             Grand Total: Rs 
         </div>
@@ -50,5 +59,6 @@
             <a href=""> <button class="bg-blue-500 text-white  w-60 rounded-md shadow-lg h-8 mt-5 mr-3"> Proceed to checkout</button></a>
         </div>
     </footer>
+    <% } %>
 </body>
 </html>

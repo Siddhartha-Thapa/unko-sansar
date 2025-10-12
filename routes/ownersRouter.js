@@ -56,8 +56,7 @@ router.post("/login", async(req,res)=>{
 router.get('/admin',async(req,res)=>{
     let error = req.flash("error")
     res.render("loginowner",{error})
-    // let success = req.flash("success");
-    // res.render("createproducts",{success});
+   
 });
 
 

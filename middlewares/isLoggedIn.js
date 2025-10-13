@@ -16,5 +16,3 @@ module.exports = async function(req, res , next) {
         res.redirect("/");
     }
 };
-
-//comment

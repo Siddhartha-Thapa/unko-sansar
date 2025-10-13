@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ownermodel = require('../models/owners');
 const bcrypt = require("bcrypt");
+const {generateToken} = require("../utils/generateToken");
+const isownerloggedin = require('../middlewares/isownerloggedin');
 
 if(process.env.NODE_ENV === "development"){
     router.post("/create", async(req,res)=>{
@@ -36,11 +38,11 @@ if(process.env.NODE_ENV === "development"){
 router.post("/login", async(req,res)=>{
     let{email,password}= req.body;
     let owner =await ownermodel.findOne({email: email});
-     console.log(owner.password);
      if(owner){
         bcrypt.compare(password, owner.password , (err, result)=>{
-            console.log(result);
             if(result){
+                let token = generateToken(owner);
+                res.cookie("token", token);
                 let success = req.flash("success");
                 res.render("createproducts",{success});
             }
@@ -53,9 +55,10 @@ router.post("/login", async(req,res)=>{
         
      }
 })
-router.get('/admin',async(req,res)=>{
+router.get('/admin', isownerloggedin , async(req,res)=>{
     let error = req.flash("error")
-    res.render("loginowner",{error})
+    let success = req.flash("success")
+    res.render("createproducts",{error, success})
    
 });
 

@@ -54,6 +54,10 @@ router.post("/login", async(req,res)=>{
         })
         
      }
+});
+router.get("/login", (req,res)=>{
+    let error = req.flash("error");
+    res.render("loginowner",{error});
 })
 router.get('/admin', isownerloggedin , async(req,res)=>{
     let error = req.flash("error")
@@ -62,6 +66,9 @@ router.get('/admin', isownerloggedin , async(req,res)=>{
    
 });
 
-
+router.get("/admin/logout", (req,res)=>{
+    res.cookie("token","");
+    res.redirect("/owners/login");
+})
 
 module.exports = router;

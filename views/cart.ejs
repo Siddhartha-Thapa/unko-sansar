@@ -23,7 +23,7 @@
             <div class="flex gap-30">
                 <div>
                     <img class=" ml-5 w-40 h-40 shadow-lg" src="data:image/jpeg;base64,<%= item.image.toString('base64') %>" alt="">
-                    <div class="flex justify-around text-white bg-cyan-800 ml-5 h-8"><div class="text-sm mt-1"><%= item.name %></div><div class="mt-1"><button class="bg-white w-6 h-6 rounded-full text-black mr-1">-</button><button class="bg-white w-6 h-6 rounded-md text-black mr-1"><%= counter %></button><button  class="bg-white w-6 h-6 rounded-full text-black">+</button></div></div>
+                    <div class="text-white bg-cyan-800 ml-5 h-8 text-center"><%= item.name %></div>
                     <div class="flex justify-around text-white bg-cyan-900 ml-5 h-8"><div class="text-sm mt-1 mr-5">Net total</div><div class="text-sm mt-1">Rs <%= item.price - item.discount %></div> </div>
                 </div>
                 <div >

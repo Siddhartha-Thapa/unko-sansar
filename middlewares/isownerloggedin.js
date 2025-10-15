@@ -4,8 +4,8 @@ const usermodel = require("../models/user");
 
 module.exports = async function(req, res , next) {
     if(!req.cookies.token){
-        req.flash("error", "you need to login first");
-        return res.redirect("/");
+        req.flash("error","You need to login first")
+        res.redirect("/owners/login");
     }
     try{
         let decoded = jwt.verify(req.cookies.token , process.env.JWT_KEY);
@@ -14,6 +14,6 @@ module.exports = async function(req, res , next) {
         next();
     }catch(err){
         req.flash("error","Something went wrong");
-        res.redirect("/");
+        res.redirect("/login");
     }
 };

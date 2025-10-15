@@ -27,9 +27,12 @@ router.get("/addtocart/:id",isLoggedIn, async(req,res)=>{
 router.get("/cart/:id", isLoggedIn , async(req,res)=>{
     let user = await usermodel.findOne({email:req.user.email}).populate("cart");
     let products = await productmodel.find();
-    let counter = 1;
-    
-    res.render("cart",{user, products, counter});
+    let total = 0;
+    await user.cart.forEach(function(item){
+       total =  total+(item.price-item.discount+5); 
+    });
+       res.render("cart",{user, products, total});
+       console.log(total);
 })
 router.post("/cart/remove/:id",isLoggedIn ,async(req,res)=>{
     let user = await usermodel.findOne({email: req.user.email});

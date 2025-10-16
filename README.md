@@ -1,163 +1,190 @@
-# 🧶 Unko Sansar
+# unko-sansar
 
-> **Unko Sansar** is a web platform designed for **crochet enthusiasts and crochet business owners**.  
-> Business owners get their own **admin panel** to upload products, while buyers can **browse, like, and order** crochet items — just like an e-commerce site for the crochet community.
+## 🚀 Overview
+**Unko Sansar** is a web platform designed for **crochet enthusiasts and crochet business owners**.  
+Business owners get their own **admin panel** to upload products, while buyers can **browse and order products** crochet items — functioning like a specialized e-commerce site for handmade crochet goods.
 
----
 
-## 📖 Table of Contents
-- [✨ Overview](#-overview)
-- [⚙️ Tech Stack](#️-tech-stack)
-- [📁 Folder Structure](#-folder-structure)
-- [🚀 Installation & Setup](#-installation--setup)
-- [🧭 Usage](#-usage)
-- [🧩 Middleware & Utilities](#-middleware--utilities)
-- [🤝 Contributing](#-contributing)
-- [🪪 License](#-license)
+### Key Features
+- User registration and login
+- Admin Creation and login
+- Product browsing and ordering
+- Shopping cart functionality
+- Order placement and tracking
+- Admin panel for product owners to manage products
 
----
+### Who This Project Is For
+- Crochet enthusiasts
+- Developers looking to build an e-commerce platform
+- Product owners who want to manage their products online
 
-## ✨ Overview
+## ✨ Features
+- User-friendly shopping experience
+- Secure user authentication
+- Admin panel for product management
 
-**Unko Sansar** connects crochet creators and customers in one platform.  
-It allows:
-- 🧵 **Business owners** to manage their own crochet shop via an **admin dashboard**  
-- 🛍️ **Buyers** to explore, like, and purchase crochet items  
-- 🌐 A clean, server-rendered experience using **EJS templates**
+## 🛠️ Tech Stack
+- **Programming Language:** EJS
+- **Frameworks & Libraries:**
+  - Express
+  - Mongoose
+  - Multer
+  - bcrypt
+  - jsonwebtoken
+  - connect-flash
+  - cookie-parser
+  - express-session
+- **Tools:**
+  - Tailwind CSS
+  - PostCSS
+  - Autoprefixer
+- **Database:** MongoDB
 
-This project uses the **MVC pattern** — separating business logic, routing, and UI templates for better scalability and maintainability.
+## 📦 Installation
 
----
+### Prerequisites
+- Node.js (v14 or later)
+- MongoDB (v4 or later)
 
-## ⚙️ Tech Stack
+### Quick Start
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/unko-sansar.git
+   cd unko-sansar
+   ```
 
-| Layer | Technology |
-|-------|-------------|
-| Backend | Node.js, Express.js |
-| Frontend | EJS (Embedded JavaScript Templates) |
-| Database | MongoDB |
-| Styling | Tailwind CSS / Custom CSS |
-| Tools | Nodemon (for development), npm |
-| Architecture | MVC (Model-View-Controller) |
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
----
+3. Set up environment variables:
+   - Create a `.env` file in the root directory and add the following:
+     ```env
+     EXPRESS_SESSION_SECRET=your_secret_key
+     JWT_KEY=your_jwt_key
+     MONGODB_URI=mongodb://127.0.0.1:27017/unkosansar
+     ```
 
-## 📁 Folder Structure
+4. Start the server:
+   ```bash
+   npm start
+   ```
 
+## 🎯 Usage
+
+### Basic Usage
+```ejs
+// Example of rendering a product list
+<% products.forEach(function(product){ %>
+  <div class="w-80 h-125 rounded-md shadow-lg">
+      <img class="w-80 h-80 rounded-md border-none" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="">
+      <div class="text-white bg-cyan-800 ml-5 h-8 text-center"><%= product.name %></div>
+      <div class="flex justify-around text-white bg-cyan-900 ml-5 h-8"><div class="text-sm mt-1 mr-5">Net total</div><div class="text-sm mt-1">Rs <%= product.price - product.discount %></div> </div>
+  </div>
+<% }) %>
+```
+
+### Advanced Usage
+- **Admin Panel:** (for product owners)
+  - Navigate to `/owners/admin` to manage products.
+  - Use the form to create new products and upload images.
+
+## 📁 Project Structure
+```
 unko-sansar/
-├── config/ # Configuration files (e.g., DB connection, environment setup)
-├── controllers/ # Business logic and route handlers
-├── middlewares/ # Custom middlewares (authentication, validation, etc.)
-├── models/ # Mongoose models and schemas
-├── public/ # Static assets (CSS, JS, images)
-│ └── images/
-├── routes/ # Route definitions
-├── utils/ # Helper / utility functions
-├── views/ # EJS templates (frontend pages)
-├── app.js # Main server file (entry point)
+├── .gitignore
+├── .env
+├── app.js
+├── config/
+│   ├── development.json
+│   ├── keys.js
+│   ├── multer-config.js
+│   └── mongoose-connection.js
+├── controllers/
+│   └── authController.js
+├── middlewares/
+│   ├── isLoggedIn.js
+│   └── isownerloggedin.js
+├── models/
+│   ├── owners.js
+│   ├── product.js
+│   └── user.js
+├── routes/
+│   ├── index.js
+│   ├── ownersRouter.js
+│   ├── productsRouter.js
+│   └── usersRouter.js
+├── utils/
+│   └── generateToken.js
+├── views/
+│   ├── cart.ejs
+│   ├── checkout.ejs
+│   ├── createproducts.ejs
+│   ├── index.ejs
+│   ├── login.ejs
+│   ├── loginowner.ejs
+│   └── ...
 ├── package.json
-└── .gitignore
+└── package-lock.json
+```
+
+## 🔧 Configuration
+- **Environment Variables:**
+  - `EXPRESS_SESSION_SECRET`: Secret key for express-session.
+  - `JWT_KEY`: Secret key for JSON Web Tokens.
+  - `MONGODB_URI`: MongoDB connection string.
+
+## 🤝 Contributing
+- Fork the repository
+- Create a new branch for your feature or bug fix
+- Make your changes and commit them
+- Push your changes to your fork
+- Open a pull request
+
+### Development Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/unko-sansar.git
+   cd unko-sansar
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   - Create a `.env` file in the root directory and add the following:
+     ```env
+     EXPRESS_SESSION_SECRET=your_secret_key
+     JWT_KEY=your_jwt_key
+     MONGODB_URI=mongodb://127.0.0.1:27017/unkosansar
+     ```
+
+4. Start the server:
+   ```bash
+   npm start
+   ```
 
 
+### Pull Request Process
+1. Ensure your code is well-tested
+2. Write clear and concise commit messages
+3. Address any feedback from reviewers
 
----
-
-## 🚀 Installation & Setup
-
-Follow these steps to set up the project locally:
-
-```bash
-# 1️⃣ Clone the repository
-git clone https://github.com/Siddhartha-Thapa/unko-sansar.git
-cd unko-sansar
-
-# 2️⃣ Install dependencies
-npm install
-
-# 3️⃣ Set up environment variables
-# Create a .env file (or edit config files) with:
-# MONGO_URI=<your MongoDB connection string>
-# PORT=<your desired port>
-
-# 4️⃣ Run the application (with Nodemon)
-nodemon app.js
-#Once the server starts, visit
-👉 http://localhost:PORT
-
-#(replace PORT with your configured port, usually 3000 or 5000).
-
-## 🧭 Usage
-#For Admins (Crochet Business Owners)
-
-- Log in to your admin dashboard
-
-- Upload new crochet items with images and descriptions
-
-- Manage or delete existing products
-
-#For Buyers
-
--Browse all crochet collections
-
--View product details and add to cart
-
--Place an order and explore handmade crochet art
+## 👥 Authors & Contributors
+- [Siddhartha Thapa](https://github.com/Siddhartha-Thapa)
 
 
+## 🗺️ Roadmap
+- **Planned Features:**
+  - Implement user reviews and ratings
+  - Add payment gateway integration
+  - Improve admin panel UI/UX
 
-🧩 Middleware & Utilities
+- **Future Improvements:**
+  - Add mobile responsiveness
+  - Implement user notifications
+  - Enhance security measures
 
-middlewares/ – Handles authentication, request validation, and error handling
-
-utils/ – Common helper functions for code reuse
-
-config/ – MongoDB connection and environment configuration
-
-🤝 Contributing
-
-Contributions, ideas, and suggestions are always welcome 💡
-
-Fork the repo
-
-Create a feature branch:
-
-git checkout -b feature-name
-
-
-Commit your changes and push:
-
-git push origin feature-name
-
-
-Create a pull request
-
-Please ensure your code follows consistent formatting and includes meaningful commit messages.
-
-🪪 License
-MIT License
-
-Copyright (c) 2025 Siddhartha Thapa
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-💬 Author
-
-Siddhartha Thapa
-📍 Nepal
-👨‍💻 Passionate about building web applications that connect communities.

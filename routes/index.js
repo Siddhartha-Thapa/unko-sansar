@@ -17,6 +17,27 @@ router.get("/users/login",isLoggedIn, async(req,res)=>{
     let cartcount = user.cart.length;
     res.render("login", {success, products, user, cartcount});
 });
+router.get("/users/checkout", isLoggedIn, async(req,res)=>{
+    let user = await usermodel.findOne({email: req.user.email}).populate("cart");
+    let total = 0;
+    await user.cart.forEach(function(item){
+       total =  total+(item.price-item.discount+5); 
+    });
+    res.render("checkout",{user, total});
+})
+router.get("/users/order", isLoggedIn , async(req,res)=>{
+    req.flash("success", "Order successfull");
+    let user = await usermodel.findOne({email: req.user.email}).populate("cart");
+    await user.cart.forEach(function(item){
+        user.orders.push(item.name);
+    });
+    while( user.cart.length > 0){
+        user.cart.pop();
+    };
+    user.save();
+    res.redirect("/users/login")
+
+})
 router.get("/addtocart/:id",isLoggedIn, async(req,res)=>{
     let user =await usermodel.findOne({email: req.user.email});
     user.cart.push(req.params.id);
@@ -24,6 +45,7 @@ router.get("/addtocart/:id",isLoggedIn, async(req,res)=>{
     req.flash("success","Added to cart successfully");
     res.redirect("/users/login");
 });
+
 router.get("/cart/:id", isLoggedIn , async(req,res)=>{
     let user = await usermodel.findOne({email:req.user.email}).populate("cart");
     let products = await productmodel.find();
@@ -32,7 +54,6 @@ router.get("/cart/:id", isLoggedIn , async(req,res)=>{
        total =  total+(item.price-item.discount+5); 
     });
        res.render("cart",{user, products, total});
-       console.log(total);
 })
 router.post("/cart/remove/:id",isLoggedIn ,async(req,res)=>{
     let user = await usermodel.findOne({email: req.user.email});

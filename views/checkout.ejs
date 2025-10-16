@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unko Sansar</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-cyan-100">
+    <div class="text-center mt-10 text-4xl font-serif text-cyan-800" >Checkout</div>
+    <div class="flex w-auto h-auto gap-35 ml-30 mt-10  ">
+        <div class="bg-cyan-50 w-120 h-100 rounded-md text-center text-2xl shadow-lg py-3 ">
+            <form aria-required="true" autocomplete="off" method="get" action="/users/order">
+                <input class="rounded-md border-none bg-cyan-100 mt-7 mb-8 px-3 h-10 outline-none text-sm w-70" type="text" placeholder="Full Name" name="fullname" required >
+                <input class="rounded-md border-none bg-cyan-100 mb-8 px-3 h-10 outline-none text-sm w-70"  type="text" placeholder="Address" name="address" required>
+                <input class="rounded-md border-none bg-cyan-100 mb-8 px-3 h-10 outline-none text-sm w-70"  type="email" placeholder="Email" name="email" required>
+                <input class="rounded-md border-none bg-cyan-100 mb-8 px-3 h-10 outline-none text-sm w-70" type="text" placeholder="Contact No" name="contact" required><br>
+                <input class="w-70 rounded-md bg-blue-500 text-white px-3 py-2 text-sm text-sm w-70" type="submit">Confirm Order
+            </form>
+        </div>
+        <div class="bg-cyan-50 w-100 h-100 rounded-md text-center text-2xl py-3 shadow-xl">
+            <span class="text-cyan-900 text-3xl ">Order Details</span>
+            <div class="mt-5 text-xl font-semibold ">
+                <span class="text-2xl font-bold text-cyan-800">Ordered Products:</span> <br>
+                 <% user.cart.forEach(function(item){ %>
+                    <%= item.name %> <br>
+                    <% }) %>
+            </div>
+            <br>
+            <div class="text-sm">User ID : <%=user._id%></div>
+            <br>
+            <div class="flex justify-between px-12">
+                <div class="text-blue-500 font-bold">Total cost </div>
+                <div class="text-xl font-bold">Rs <%=total%></div>
+            </div>
+            <div class="text-end text-sm mr-5 ">(cash on delivery)</div><br>
+    
+        </div>
+    </div>    
+</body>
+</html>
